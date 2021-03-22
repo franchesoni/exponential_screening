@@ -3,15 +3,17 @@ import numpy as np
 
 
 class ESEstimator:
-    def __init__(self, sigma=1, estimate_sigma_alpha=None, T0=3000, T=7000):
+    def __init__(self, sigma=1, estimate_sigma_alpha=None, method='binary', T0=3000, T=7000):
         # to use sigma set sigma=real_sigma and estimate_sigma=False
         # to estimate sigma use sigma=sigma_upper_bound
         self.sigma, self.estimate_sigma_flag = (sigma, estimate_sigma_alpha is not None)
+        self.method = method
         self.alpha = estimate_sigma_alpha
         self.T, self.T0 = T, T0
 
     def estimate_sigma(self, X, Y, method='exp', maxiter=10):
         n, M = X.shape
+        method = self.method
         assert method in ['exp', 'binary']
         self.estimate_sigma_flag = False  # we are doing it
         if method=='exp':  # exponential search

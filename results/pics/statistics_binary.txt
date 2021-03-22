@@ -1,0 +1,36 @@
+Classification report for voting classifier:
+              precision    recall  f1-score   support
+
+           0       0.24      0.47      0.32        88
+           1       0.22      0.23      0.23        91
+           2       0.40      0.38      0.39        86
+           3       0.18      0.23      0.20        91
+           4       0.26      0.26      0.26        92
+           5       0.34      0.25      0.29        91
+           6       0.29      0.30      0.29        91
+           7       0.33      0.17      0.22        89
+           8       0.25      0.18      0.21        88
+           9       0.22      0.17      0.19        92
+
+    accuracy                           0.26       899
+   macro avg       0.27      0.26      0.26       899
+weighted avg       0.27      0.26      0.26       899
+
+Classification report for weighted classifier:
+              precision    recall  f1-score   support
+
+           0       0.78      0.89      0.83        88
+           1       0.53      0.64      0.58        91
+           2       0.67      0.58      0.62        86
+           3       0.55      0.51      0.53        91
+           4       0.66      0.58      0.62        92
+           5       0.67      0.53      0.59        91
+           6       0.63      0.79      0.70        91
+           7       0.86      0.56      0.68        89
+           8       0.44      0.45      0.45        88
+           9       0.38      0.48      0.42        92
+
+    accuracy                           0.60       899
+   macro avg       0.62      0.60      0.60       899
+weighted avg       0.62      0.60      0.60       899
+

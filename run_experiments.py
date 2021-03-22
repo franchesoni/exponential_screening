@@ -31,7 +31,7 @@ def run_digits_classification(
     # estimate knowing sigma
     n, M = X.shape[0], X.shape[1]
     thetas_es = np.empty((len(labels_test), M, 1))
-    es = ESEstimator(sigma=sigma, estimate_sigma_alpha=estimate_sigma_alpha)
+    es = ESEstimator(sigma=sigma, estimate_sigma_alpha=estimate_sigma_alpha, method='binary')
     X_ind = X.squeeze()  # X is always the same
     for ind in tqdm.tqdm(range(len(labels_test) - 1)):
         Y_ind = Y[ind].reshape(-1, 1)
@@ -333,28 +333,28 @@ def run_synthetic(n_exps, n, M, S, X_type, prefix=""):
 
 
 if __name__ == "__main__":
-    prefix = 'run_1_'  # knowing sigma
-    n_exps, n, M, S, X_type = 500, 100, 200, 10, 'gaussian'
-    run_synthetic(n_exps, n, M, S, X_type, prefix=prefix)
+    # prefix = 'run_1_'  # knowing sigma
+    # n_exps, n, M, S, X_type = 500, 100, 200, 10, 'gaussian'
+    # run_synthetic(n_exps, n, M, S, X_type, prefix=prefix)
 
-    n_exps, n, M, S, X_type = 500, 100, 200, 10, 'rademacher'
-    run_synthetic(n_exps, n, M, S, X_type, prefix=prefix)
+    # n_exps, n, M, S, X_type = 500, 100, 200, 10, 'rademacher'
+    # run_synthetic(n_exps, n, M, S, X_type, prefix=prefix)
 
-    n_exps, n, M, S, X_type = 500, 200, 500, 20, 'gaussian'
-    run_synthetic(n_exps, n, M, S, X_type, prefix=prefix)
+    # n_exps, n, M, S, X_type = 500, 200, 500, 20, 'gaussian'
+    # run_synthetic(n_exps, n, M, S, X_type, prefix=prefix)
 
-    n_exps, n, M, S, X_type = 500, 200, 500, 20, 'rademacher'
-    run_synthetic(n_exps, n, M, S, X_type, prefix=prefix)
+    # n_exps, n, M, S, X_type = 500, 200, 500, 20, 'rademacher'
+    # run_synthetic(n_exps, n, M, S, X_type, prefix=prefix)
 
-    prefix = 'try2_'  # knowing sigma
-    n_exps, sigma, obs_index, normalize = 5, 1, 10, False
-    run_digits_denoising(n_exps, sigma, obs_index=obs_index, prefix=prefix, normalize=normalize)
+    # prefix = 'try2_'  # knowing sigma
+    # n_exps, sigma, obs_index, normalize = 5, 1, 10, False
+    # run_digits_denoising(n_exps, sigma, obs_index=obs_index, prefix=prefix, normalize=normalize)
 
-    prefix = "run_1_"
-    sigma, estimate_sigma_alpha, test_qty, normalize = 1, None, 1000, False
-    run_digits_classification(
-        sigma=sigma, estimate_sigma_alpha=estimate_sigma_alpha, test_qty=test_qty, normalize=normalize, prefix=prefix
-    )
+    # sigma, estimate_sigma_alpha, test_qty, normalize = 1, None, 1000, False
+    # run_digits_classification(
+    #     sigma=sigma, estimate_sigma_alpha=estimate_sigma_alpha, test_qty=test_qty, normalize=normalize, prefix=prefix
+    # )
+    prefix = "run_1_binary_"
     sigma, estimate_sigma_alpha, test_qty, normalize = 5, 0.1, 1000, False
     run_digits_classification(
         sigma=sigma, estimate_sigma_alpha=estimate_sigma_alpha, test_qty=test_qty, normalize=normalize, prefix=prefix
